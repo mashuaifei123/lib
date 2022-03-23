@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+  <template id="kalendae_web" name="My Web kalendae"
+            inherit_id="web.assets_backend">
+     <xpath expr="." position="inside">
+
+       <link rel="stylesheet" type="text/css"
+             href="/my_library/static/lib/css/kalendae.css"/>
+       <script type="text/javascript"
+               src="/my_library/static/lib/js/kalendae.js"></script>
+
+    </xpath>
+  </template>
+</odoo>
+
+
+

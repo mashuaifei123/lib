@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="ana_report_sample">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.internal_layout">
+                    <div style="width: 260px; height: 120px;">
+                        <div style="float: left; width: 140px;">
+                            <p><t t-esc="doc.iacuc_no"/></p>
+                        </div>
+                        <div style="margin-left: 140px;">
+                            <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('QR', doc.iacuc_no, 50, 50)" />
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

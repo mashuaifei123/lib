@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id='project_experiment_action' model='ir.actions.act_window'>
+        <field name="name">Project Experiments</field>
+        <field name="res_model">project.experiment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Project Experiment" id="project_base_menu" />
+    <menuitem name="Test record" id="project_base_menu1" parent="project_base_menu" action="project_experiment_action"/>
+
+
+    <record id="project_experiment_view_form" model="ir.ui.view">
+        <field name="name">Project Experiment Form</field>
+        <field name="model">project.experiment</field>
+        <field name="arch" type="xml">
+            <form string = "add record">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="studyname_id"/>
+                            <field name="study_name"/>
+                            <field name="study_name"/>
+                        </group>
+                        <group>
+                            <field name="data_set"/>
+                            <field name="date_updated"/>
+                        </group>
+                    </group>
+                    <!--添加材料栏 -->
+                    
+                    <notebook>
+                        <page string="操作情况">
+                            <field name="bom_line_ids" >
+                                <tree string="新增操作">
+                                    <field name="action_id" />
+                                    <field name="date_release"  /> 
+                                </tree>
+                                <form string = "add record">
+                                    <sheet>
+                                        <field name="action_id" />
+                                        <field name="date_release"  />
+                                        <field name="bom_line_child_ids" widget="one2many">
+                                            <tree string="新增材料" editable="bottom">
+                                                <field name="product_id" />
+                                                <field name="product_qty"  />
+                                            </tree>
+                                        </field>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Components" name="components">
+                            <field name="description" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+    </field>
+    </record>
+
+    <!-- 展示首页 -->
+    <record id="project_experiment_view_tree" model="ir.ui.view">
+        <field name="name">Project Experiment List</field>
+        <field name="model">project.experiment</field>
+        <field name="arch" type="xml">
+            <tree string="记录总览" >
+                <field name="studyname_id"/>
+                <field name="date_updated"/>
+            </tree>
+        </field>
+    </record>
+    <!-- 搜索 -->
+    <record id="project_experiment_view_search" model="ir.ui.view">
+        <field name="name">Project Experiment Search</field>
+        <field name="model">project.experiment</field>
+        <field name="arch" type="xml">
+            <search>
+                
+            </search>
+        </field>
+    </record>
+</odoo>

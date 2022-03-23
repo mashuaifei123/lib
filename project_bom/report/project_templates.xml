@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="project_templates">
+        <t t-call-assets="web.assets_common" t-js="false" />
+        <div class="container o_project_report_page">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <t t-set="currency" t-value="lines_data[3]['currency']" />
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1>
+                                    BoM for
+                                    <t t-esc="head_data.study_id" />
+                                </h1>
+                                <h2>
+                                    <t t-esc="head_data.studyname" />
+                                </h2>
+                            </div>
+                        </div>
+                        <table class="table table-condensed o_project_expandable ">
+                            <thead>
+                                <tr>
+                                    <th>部门</th>
+                                    <th>操作</th>
+                                    <th>日期</th>
+                                    <th>材料</th>
+                                    <th class="text-right">消耗个数</th>
+                                    <th class="o_mrp_prod_cost text-right">单价</th>
+                                    <th class="o_project_cost text-right">总价</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-if="lines_data[2] == 'pdf'" t-call="project_bom.project_templates_pdf_line" />
+                            </tbody>
+                            <tfoot>
+                                <!-- table td {padding: 0.75rem;} -->
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td name="td_project_f"></td>
+                                    <td class="text-right o_mrp_prod_cost">
+                                        <span>
+                                            <strong>总计</strong>
+                                        </span>
+                                    </td>
+                                    <td></td>
+                                    <td class='o_project_cost  text-right'>
+                                        <span t-esc="lines_data[1]" t-options='{"widget": "monetary", "display_currency": currency}' />
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </div>
+    </template>
+
+
+    <template id="project_templates_pdf_line">
+        <t t-set="currency" t-value="lines_data[3]['currency']" />
+        <t t-foreach="lines_data[0]" t-as="l">
+
+            <t t-set="space_td" t-value="'margin-left: '+ str(l['level'] * 0) + 'px;'" />
+
+            <tr>
+                <td>
+                    <div t-att-style="space_td">
+                        <div>
+                            <t t-esc="l['apartment']" />
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div t-att-style="space_td">
+                        <div>
+                            <t t-esc="l['project_actions_name']" />
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div t-att-style="space_td">
+                        <div>
+                            <t t-esc="l['date']" />
+                        </div>
+                    </div>
+                </td>
+                <td name="td_mrp_code">
+                    <div t-esc="l['product_template_name']" />
+                </td>
+                <td class="text-right">
+                    <span>
+                        <t t-esc="l['project_bom_line_product_qty']" />
+                    </span>
+                </td>
+                <td class="o_mrp_prod_cost text-right">
+                    <span t-if="'product_template_list_price' in l" t-esc="l['product_template_list_price']" t-options='{"widget": "monetary", "display_currency": currency}' />
+                </td>
+                <td class="o_project_cost text-right">
+                    <span t-esc="l['line_total']" t-options='{"widget": "monetary", "display_currency": currency}' />
+                </td>
+            </tr>
+        </t>
+    </template>
+
+
+</odoo>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id='door_record' model='ir.actions.act_window'>
+        <field name="name">门禁记录</field>
+        <field name="res_model">mjrecords</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="门禁记录" id="door_record_action" parent="register_door_menu" action="door_record"  sequence = "2"/>
+
+    <record id="door_record_view_form" model="ir.ui.view">
+        <field name="name">mjrecords Form</field>
+        <field name="model">mjrecords</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <button name="print_docx" string="打印" type="object" class="oe_highlight" />
+                    <group>
+                        <group>
+                            <field name="applicant_id" force_save='1' />
+                            <field name="applicant_no" />
+                        </group>
+                        <group>
+                            <field name="department_id" />
+                            <field name="position_id" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="区域选择">
+                            <field name="room_line_ids" res_model='setroom' res_field='room_id' widget='multi_select_tree'>
+                                <tree string="新增操作" editable="bottom">
+                                    <field name="room_id" />
+                                    <field name="access_control_no" />
+                                    <field name="charge_person" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- 展示首页 -->
+    <record id="door_record_view_tree" model="ir.ui.view">
+        <field name="name">mjrecords List</field>
+        <field name="model">mjrecords</field>
+        <field name="arch" type="xml">
+            <tree string="记录总览">
+                <field name="applicant_id"/>
+                <field name="applicant_no" />
+                <field name="department_id" />
+                <field name="position_id" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- 搜索 -->
+    <record id="door_record_view_search" model="ir.ui.view">
+        <field name="name">mjrecords Search</field>
+        <field name="model">mjrecords</field>
+        <field name="arch" type="xml">
+            <search>      
+                <field name="applicant_id"/>
+                <field name="applicant_no" />
+                <field name="department_id" />
+            </search>
+        </field>
+    </record>
+</odoo>

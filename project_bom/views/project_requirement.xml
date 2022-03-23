@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='project_requirement_action' model='ir.actions.act_window'>
+        <field name="name">需求</field>
+        <field name="res_model">project.requirement</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="需求" id="project_requirement_menu" parent="project_base_menu" action="project_requirement_action"/>
+
+    <!-- Form View -->
+    <record id="project_requirement_view_form" model="ir.ui.view">
+        <field name="name">Project Requirement Form</field>
+        <field name="model">project.requirement</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="applicant" />
+                        </group>
+                        <group>
+                            <field name="department_id" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="需求物品">
+                            <field name="require_line_ids">
+                                <tree string="新增操作" editable="bottom">
+                                    <field name="require_product_id" />
+                                    <field name="product_quantity" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree(list) View -->
+    <record id="project_requirement_view_tree" model="ir.ui.view">
+        <field name="name">Project Requirement</field>
+        <field name="model">project.requirement</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="department_id" />
+                <field name="applicant" />
+                <field name="create_date" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="project_requirement_view_search" model="ir.ui.view">
+        <field name="name">Project Requirement Search</field>
+        <field name="model">project.requirement</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="applicant" />
+            </search>
+        </field>
+    </record>
+</odoo>

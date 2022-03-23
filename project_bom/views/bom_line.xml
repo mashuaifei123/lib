@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id='project_line_action' model='ir.actions.act_window'>
+        <field name="name">Project Line</field>
+        <field name="res_model">project.bom.line.child</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="project_line_view_form" model="ir.ui.view">
+        <field name="name">Project Line Form</field>
+        <field name="model">project.bom.line.child</field>
+        <field name="arch" type="xml">
+            <form string = "add record">
+                <sheet>
+                    <group>
+                    <!--添加材料栏 -->
+                    <field name="product_id" />
+                    </group>
+                    <group>
+                    <field name="product_qty"  />
+                    </group>
+                </sheet>
+            </form>
+    </field>
+    </record>
+
+    <record id="project_line_view_tree" model="ir.ui.view">
+        <field name="name">Project Line List</field>
+        <field name="model">project.bom.line.child</field>
+        <field name="arch" type="xml">
+            <tree string="材料总览" >
+                <field name="product_id"/>
+                <field name="product_qty"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

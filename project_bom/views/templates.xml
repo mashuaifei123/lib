@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="assets_end" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script src="/project_bom/static/src/js/kalendae.standalone.js" type="text/javascript" />
+            <script src="/project_bom/static/src/js/Multi-Select-Date.js" type="text/javascript" />
+            <link href="/project_bom/static/src/css/kalendae.css" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+
+</odoo>

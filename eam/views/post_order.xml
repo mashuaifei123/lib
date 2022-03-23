@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='register_postorder' model='ir.actions.act_window'>
+        <field name="name">申请记录</field>
+        <field name="res_model">postorder</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="eam" id="register_postorder_menu" />
+    <menuitem name="申请记录" id="register_postorder_action" parent="register_postorder_menu" action="register_postorder" sequence="1" />
+
+
+    <record id="postorder_view_form" model="ir.ui.view">
+        <field name="name">postorder Form</field>
+        <field name="model">postorder</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="orderid" />
+                            <field name="orderdepartment" />
+                        </group>
+                        <group>
+                            <field name="poster" />
+                            <field name="post_data" />
+                            <field name="modtime" />
+                            
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="详细列表">
+                            <field name="choose_ids" >
+                                <tree string="新增" editable="bottom">
+                                    <field name="goods" />
+                                    <field name="redate" />
+                                    <field name="product_quantity" />
+                                    <field name="state" />
+                                    <field name="lines_department" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- 展示首页 -->
+    <record id="postorder_view_tree" model="ir.ui.view">
+        <field name="name">postorder List</field>
+        <field name="model">postorder</field>
+        <field name="arch" type="xml">
+            <tree string="记录">
+                <field name="orderid" />
+                <field name="orderdepartment" />
+                <field name="poster" />
+                <field name="create_date" string="创建时间" />
+                <field name="modtime"  />
+                <field name="state"  />
+            </tree>
+        </field>
+    </record>
+
+    <!-- 搜索 -->
+    <record id="postorder_view_search" model="ir.ui.view">
+        <field name="name">postorder Search</field>
+        <field name="model">postorder</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="orderid" />
+            </search>
+        </field>
+    </record>
+</odoo>

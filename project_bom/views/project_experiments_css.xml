@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+<data>
+    <template id="assets_common" name="common assets" inherit_id="web.assets_common">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/project_bom/static/lib/css/pdf_report.scss" />
+        </xpath>
+    </template>
+
+</data>
+</odoo>

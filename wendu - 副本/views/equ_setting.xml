@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='equ_action' model='ir.actions.act_window'>
+        <field name="name">EQU</field>
+        <field name="res_model">equrecord</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="EQU" id="equ_menu" />
+    <menuitem name="登记信息" id="equ_record_menu" parent="equ_menu" action="equ_action" sequence="1" />
+
+
+    <record id="equ_record_view_form" model="ir.ui.view">
+        <field name="name">Equ Record Form</field>
+        <field name="model">equrecord</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                   
+                    <field name="state_id" widget="statusbar" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="registerid" />
+                            <field name="attribute_sort" />
+                            <field name="registername" />
+                            <field name="registeredition" />
+                            <!-- <field name="state_id" /> -->
+                        </group>
+                        <group>
+                            <field name="manufacturer_id" />
+                            <field name="factorynumber" />
+                            <field name="manufacturerphone" />
+                            <field name="range_parameters" />
+                            <field name="accuracy_level" />
+                            <field name="sopnumber" />
+                        </group>
+                    </group>
+                    <!--添加 -->
+
+                    <notebook>
+                        <page string="验收记录">
+                            <field name="equ_check_ids">
+                                <tree string="新增">
+                                    <field name="state_id" />
+                                    <field name="owner_id" />
+                                    <field name="resperson_id" />
+                                    <field name="sysperson_id" />
+                                    <field name="sort_id" />
+                                    <field name="department_id" />
+                                    <field name="money" />
+                                    <field name="receiving_data" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="计量记录">
+                            <field name="equ_measure_ids">
+                                <tree string="新增">
+                                    <field name="state_id" />
+                                    <field name="measure_id" />
+                                    <field name="measure_number" />
+                                    <field name="measure_data" />
+                                    <field name="measure_validity" />
+                                    <field name="measure_range" />
+                                    <field name="measure_type" />
+                                    <field name="measure_company" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="验证记录">
+                            <field name="equ_verification_ids">
+                                <tree string="新增">
+                                    <field name="state_id" />
+                                    <field name="performance_verification" />
+                                    <field name="verification" />
+                                    <field name="verification_id" />
+                                    <field name="verification_data" />
+                                    <field name="verification_validity" />
+                                    <field name="verification_id" />
+                                    <field name="verification_range" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="停启记录">
+                            <field name="equ_stoporstart_ids">
+                                <tree string="新增">
+                                    <field name="state_id" />
+                                    <field name="place_id" />
+                                    <field name="start_data" />
+                                    <field name="stop_data" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="移交记录">
+                            <field name="equ_transfer_ids">
+                                <tree string="新增">
+                                    <field name="state_id" />
+                                    <field name="owner_id" />
+                                    <field name="resperson_id" />
+                                    <field name="sysperson_id" />
+                                    <field name="department_id" />
+                                    <field name="remove_data" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="维修记录">
+                            <field name="equ_repair_ids">
+                                <tree string="新增">
+                                    <field name="state_id" />
+                                    <field name="owner_id" />
+                                    <field name="repair_start_data" />
+                                    <field name="record_id" />
+                                    <field name="repair_data" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="报废记录">
+                            <field name="equ_scrap_ids">
+                                <tree string="新增">
+                                    <field name="state_id" />
+                                    <field name="scrap_data" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="资产回顾">
+                            <field name="equ_asset_ids">
+                                <tree string="新增">
+                                    <field name="assetsid" />
+                                    <field name="ownership" />
+                                    <field name="lastreview_data" />
+                                    <field name="nextreview_data" />
+                                    <field name="review_frequency_id" />
+                                    <field name="filename" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- 展示首页 -->
+    <record id="equ_record_view_tree" model="ir.ui.view">
+        <field name="name">Equ Record List</field>
+        <field name="model">equrecord</field>
+        <field name="arch" type="xml">
+            <tree string="记录总览">
+                <field name="registerid" />
+                <field name="registername" />
+                <field name="attribute_sort" />
+                <field name="sopnumber" />
+            </tree>
+        </field>
+    </record>
+    <!-- 搜索 -->
+    <record id="equ_record_view_search" model="ir.ui.view">
+        <field name="name">Equ Record Search</field>
+        <field name="model">equrecord</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="registerid" />
+                <field name="registername" />
+                <field name="attribute_sort" />
+                <field name="sopnumber" />
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,54 @@
+.o_project_report_page {
+    background-color: $o-view-background-color;
+    margin: 16px auto;
+    padding: 24px 16px;
+    table {border-collapse: collapse;}
+    // Manage expand icon
+    table.o_project_expandable {
+        thead tr {
+            border-width: 2px;
+            border-top-style: groove;
+            border-bottom-style: groove;
+
+        }
+        tbody tr {
+            border-width: 1px;
+            border-top-style: groove;
+            border-bottom-style: groove;
+            .o_project_unfoldable, .o_project_foldable {
+                cursor: pointer;
+            }
+        }
+        tbody, tfoot {
+            & > tr > td ~ td > span {
+                margin-left: 10px;
+                
+            }
+            tr {
+                .o_project_no_fold {
+                    margin-left: 18px;
+                }
+                .o_project_unfoldable, .o_project_foldable {
+                    margin-left: -2px;
+                }
+            }
+            td ~ td {padding: 0.1rem;}
+        
+        }
+    }
+    @include media-breakpoint-down(sm) {
+        .o_project_line {
+            & .fa-caret-down, & .fa-caret-right {
+                font-size: 2em;
+            }
+        }
+    }
+}
+
+.o_project_buttons {
+    @include media-breakpoint-down(sm) {
+        display: grid;
+        grid-gap: 4px; // For compatibility
+        gap: 4px;
+    }
+}

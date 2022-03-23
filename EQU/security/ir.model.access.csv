@@ -1,0 +1,18 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+ac_equasset_line,EquAsset Line,model_equasset_line,equ_user,1,1,1,1
+ac_equcompany,EquCompany,model_equcompany,equ_user,1,1,1,1
+ac_equmanufacturer,EquManufacturer,model_equmanufacturer,equ_user,1,1,1,1
+ac_equeeasure,EquMeasure,model_equmeasure,equ_user,1,1,1,1
+ac_equmeasure_line,EquMeasure Line,model_equmeasure_line,equ_user,1,1,1,1
+ac_equnote_line,EquNote Line,model_equnote_line,equ_user,1,1,1,1
+ac_equplace,EquPlace,model_equplace,equ_user,1,1,1,1
+ac_equrecord,EquRecord,model_equrecord,equ_user,1,1,1,1
+ac_equrepair_line,EquRepair Line,model_equrepair_line,equ_user,1,1,1,1
+ac_equreview,EquReview,model_equreview,equ_user,1,1,1,1
+ac_equscrap_line,EquScrap Line,model_equscrap_line,equ_user,1,1,1,1
+ac_equsort,EquSort,model_equsort,equ_user,1,1,1,1
+ac_equstate,EquState,model_equstate,equ_user,1,1,1,1
+ac_equstoporstart_line,EquStopOrStart Line,model_equstoporstart_line,equ_user,1,1,1,1
+ac_equtransfer_line,EquTransfer Line,model_equtransfer_line,equ_user,1,1,1,1
+ac_equverification_line,EquVerification Line,model_equverification_line,equ_user,1,1,1,1
+

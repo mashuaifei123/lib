@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<record id='analysis_ana_stock_picking_line' model='ir.actions.act_window'>
+    <field name="name">操作记录</field>
+    <field name="res_model">ana.stock.picking.line</field>
+    <field name="view_mode">tree,kanban,form</field>
+    <field name="domain">[('check_ver', '=', True)]</field>
+</record>
+
+<menuitem name="详细流向" id="analysis_ana_stock_picking_line_menu" parent="analysis_ana_stock" action="analysis_ana_stock_picking_line"  sequence = "1"/>
+
+
+
+
+<record id="analysis_ana_stock_picking_line_view_tree" model="ir.ui.view">
+    <field name="name">ana.stock.picking.line.tree</field>
+    <field name="model">ana.stock.picking.line</field>
+    <field name="arch" type="xml">
+    
+        <tree string="Move Lines" create="0" default_order="prepared_date_1" > 
+            <field name="iacuc_no_id"  />
+            <field name="prepared_date_1"/>
+            <field name="prepared_by_1"/>
+            <field name="aim_id_1"/>
+            <field name="ana_picking_type_id_1"/>
+            <field name="use_quantity"/>  
+
+            <field name="verifield_by_1" />
+            <field name="verifield_date_1"/>    
+        </tree> 
+    </field>
+</record>
+
+
+
+
+
+</odoo>

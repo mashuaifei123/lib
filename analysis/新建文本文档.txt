@@ -1,0 +1,176 @@
+1. 根据输入的一个数量number 自动生成基于数量个数的  不同编号 的库存品。BNM
+2. 根据不同的编号，自动组合成  样本名称 。
+
+
+根据填写的基本信息，使用顺态模型写入仓库所有的商品。 复写write应该也行
+
+一个按钮生成库存，
+一个顺态模型生成pdf库存的预览
+
+animalspecies_c: "123231"
+exp: "wqesad"
+iacuc_no: "awsdsd"
+instrument_no: "dsadasd"
+matrix_type_c: "adas"
+sample_quantity_c: 2
+storage_position: "1231231"
+
+
+记录字段的自动生成。
+更改前端的显示字段。（长期更新）
+
+库存的剂量去除，改为在概述页面自己填入。更新。
+
+概述form表的信息 增加
+用途字段的自动生成。..
+
+入： 手动选择空瓶 填入剂量 位置
+出： 手动选择空瓶 填入剂量  位置可以不填  纯登记还是带入计算
+ 
+状态审批
+涉及第二个人和时间 这个人与填写人是平级。
+
+
+
+
+
+管子的是否在库 与存取有关。
+出的管子，不能出现在下一次的选择	
+
+
+取货唯一性
+调拨单 与血管关系是one2many      血管line与血管是多对一关系
+管子最大值 计算方式
+
+加两个字段 审核人人加时间
+状态按钮
+
+
+        # name_list = [self.env['analysis.sample'].browse(i).iacuc_no for i in vals['choose_ids'][0][2]]
+        # name1 = '-'.join(name_list[0].split('-')[:4])
+        # if name_list[0][-1] in ['M','F']:
+        #     name2_list = ['-'.join(i.split('-')[4:5]) for i in name_list]
+        # else:
+        #     name2_list = ['-'.join(i.split('-')[4:]) for i in name_list]
+        # return res
+
+
+
+
+
+
+
+
+
+
+
+
+批量生成的1-50号试管样本，为草稿（或者默认出库），不可选中，可以删除。
+当选择入库时，改变状态为在库，可以选中，不能删除。
+当选择出库时，改变状态为出库，不可选中，不能删除。
+当选择完成时，改变状态为结束，不可选择，不能删除，能归档。
+
+
+
+
+
+domian控制状态不同的管子的显示. （注意书写规范！！！！！！！！！！！！！！！！！！！！！！！）
+
+怎么抓住这个点击复核的人，并write进数据库。小部件的局限性啊。
+
+最后根据样本设定抓住所有生成管子的动态。
+
+
+要
+老问题，根据选择的操作，隐藏掉不同的审核。
+怎么抓住这个点击复核的人，并write进数据库。
+（要么放弃小部件，）
+[[43], {stage_id: 2}]    id  方法 
+  
+
+加一个状态。 加一个模型line。
+加一个char字段。
+最大ml
+存入，差
+
+状态权限。呵呵 做不到，加个限制吧
+0: [0, "virtual_963", {iacuc_no_id: 130, product_quantity: 2}]
+1: [0, "virtual_965", {iacuc_no_id: 131, product_quantity: 2}]
+
+sample和line各加一个差的字段。 通过write更新sample
+要在pick模型里查询写入choose_ids
+
+
+vals['choose_ids'][0][2]+{'animalspecies_c_id':2} +{'last_quantity':2} 
+
+
+
+
+自动带出最大剂量
+if存，需要输入剂量，剩余剂量 =输入的剂量。 when 确认入库，将剂量写入数据库。
+
+if取，自动带出库存剂量 ，剩余剂量=0。 when 确认出库，将剂量0写入数据库。
+ 
+
+
+1.存放位置 是否会有存取过程中发生变化。是否要体现详细的位置。 会不会因为填写位置变得麻烦。
+
+2.数据的条件，是否要结合现有记录表，体现关键字或者相同，相似。  以专题界面为基准，生成分析表。
+
+
+
+位置在生成的时候能不能给默认位置
+
+
+
+查询页面？（筛选页面）
+
+单独基质编号   查询其出入信息
+申请人         查询此人的申请信息
+审核人         查询审核人的审核信息
+用途-专题编号  查询专题的使用基质情况。
+
+
+问题转变为了怎么把所有数据库数据反映到前端。 让用户自己选择想要的数据。
+
+
+
+
+	存       取          剩余          使用
+1存     a                    a		    /
+1取              b           0             b        变为 b-c
+
+2存     c                    c             /
+2取              b-c 	      0             b-c      变为b-c-d
+
+3存     d                    d             /
+3取              d           0             d         d	
+
+
+
+	存       取          剩余          使用
+1存     2                    2		    0        0
+1取              2           0             2         2
+2存     1.8                   1.8           0        变为 0.2
+2取             1.8 	      0             1.8      1.8 
+
+3存     1                     1            0         变为0.8
+3取              1           0             1         1	
+  
+         
+
+
+为什么被状态卡主了
+取出的再次存入状态改draft  ，是对的！  如果保持borrow，是不对的，状态，。
+所以不能从初始状态为draft 来判断是第一次入库。 
+	 
+解决了 ！ 回到上午的问题 把申请人，审核人 ，操作等数据同步到tree
+
+
+出入库确认按钮的可视， 存入库值得大小限制， 
+
+
+不需要draft了。 
+申请人=操作人。
+使用剂量改成操作剂量 
+[{"id":"new_e16e119a313244ed830812650a37e826","supplierspriceId":"","materialId":"2c9262ec7bc62459017bc81051b800fe","name":"3m\u80f6","type":"810-HC33 12.7mm\u00d733m","factoryName":"\u7f8e\u56fd3M","cas":"","partNo":"","unit":"\u5377","num":1,"use":"","price":0,"bidPrice":"","total":0,"remark":"","applyStatus":1,"orderStatus":1,"claimStatus":1,"applyId":"","budgeId":"","claimUserName":"","claimUser":"","arrivalDate":null,"arrivalNum":0,"orderNum":0,"claimingTime":null,"claimTime":null,"claimRemark":"","status":0,"createTime":null,"createUser":"","modUser":"","modTime":null,"deptId":"","deptName":"","applyNo":"","orderNo":""},{"id":"new_9b8ac9ed89ee4ab8abbd1bd58693f2bf","supplierspriceId":"","materialId":"2c9262ec7bc3ca02017bc415ff5b01af","name":"\u5c3c\u9f99\u624e\u5e26","type":"8*400mm","factoryName":"/","cas":"","partNo":"","unit":"\u5305","num":1,"use":"","price":0,"bidPrice":"","total":0,"remark":"","applyStatus":1,"orderStatus":1,"claimStatus":1,"applyId":"","budgeId":"","claimUserName":"","claimUser":"","arrivalDate":null,"arrivalNum":0,"orderNum":0,"claimingTime":null,"claimTime":null,"claimRemark":"","status":0,"createTime":null,"createUser":"","modUser":"","modTime":null,"deptId":"","deptName":"","applyNo":"","orderNo":""}]

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="equ_checkline_view_form" model="ir.ui.view">
+        <field name="name">Equ check Form</field>
+        <field name="model">equcheck.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="state_id" />
+                            <field name="owner_id" />
+                            <field name="resperson_id" />
+                            <field name="sysperson_id" />
+                        </group>
+                        <group>
+                            <field name="sort_id" />
+                            <field name="department_id" />
+                            <field name="money" />
+                            <field name="receiving_data" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="equ_measureline_view_form" model="ir.ui.view">
+        <field name="name">Equ measure Form</field>
+        <field name="model">equmeasure.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="state_id" />
+                            <field name="measure_id" />
+                            <field name="measure_number" />
+                            <field name="measure_data" />
+                        </group>
+                        <group>
+                            <field name="measure_validity" />
+                            <field name="measure_range" />
+                            <field name="measure_type" />
+                            <field name="measure_company" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="equ_verificationline_view_form" model="ir.ui.view">
+        <field name="name">Equ verification Form</field>
+        <field name="model">equverification.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="state_id" />
+                            <field name="performance_verification" />
+                            <field name="verification" />
+                            <field name="verification_id" />
+                        </group>
+                        <group>
+                            <field name="verification_data" />
+                            <field name="verification_validity" />
+                            <field name="verification_id" />
+                            <field name="verification_range" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="equ_stoporstartline_view_form" model="ir.ui.view">
+        <field name="name">Equ stoporstart Form</field>
+        <field name="model">equstoporstart.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="state_id" />
+                            <field name="place_id" />
+                            <field name="start_data" />
+                            <field name="stop_data" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="equ_transferline_view_form" model="ir.ui.view">
+        <field name="name">Equ transfer Form</field>
+        <field name="model">equtransfer.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="state_id" />
+                            <field name="owner_id" />
+                            <field name="resperson_id" />
+                            <field name="sysperson_id" />
+                            <field name="department_id" />
+                            <field name="remove_data" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="equ_repairline_view_form" model="ir.ui.view">
+        <field name="name">Equ repair Form</field>
+        <field name="model">equrepair.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="state_id" />
+                            <field name="owner_id" />
+                            <field name="repair_start_data" />
+                            <field name="record_id" />
+                            <field name="repair_data" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="equ_scrapline_view_form" model="ir.ui.view">
+        <field name="name">Equ scrap Form</field>
+        <field name="model">equscrap.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="state_id" />
+                            <field name="scrap_data" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="equ_asset_view_form" model="ir.ui.view">
+        <field name="name">Equ asset Form</field>
+        <field name="model">equasset.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="assetsid" />
+                            <field name="ownership" />
+                            <field name="lastreview_data" />
+                            <field name="nextreview_data" />
+                            <field name="review_frequency_id" />
+                            <field name="filename" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,18 @@
+id,Name,Model,Group,Read Access,Write Access,Create Access,Delete Access
+acl_book,EquAsset Line,EquAsset Line,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquCompany,EquCompany,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquManufacturer,EquManufacturer,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquMeasure,EquMeasure,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquMeasure Line,EquMeasure Line,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquNote Line,EquNote Line,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquPlace,EquPlace,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquRecord,EquRecord,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquRepair Line,EquRepair Line,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquReview,EquReview,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquScrap Line,EquScrap Line,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquSort,EquSort,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquState,EquState,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquStopOrStart Line,EquStopOrStart Line,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquTransfer Line,EquTransfer Line,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,EquVerification Line,EquVerification Line,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE
+,Equcheck Line,Equcheck Line,Analysis / Analysis User,TRUE,TRUE,TRUE,TRUE

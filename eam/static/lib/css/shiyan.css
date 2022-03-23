@@ -1,0 +1,24 @@
+.iqcfenmuline{
+    
+	/*display: inline;*/
+
+    width: 120px;
+
+    margin-left: 5px;
+
+    text-align: center;
+
+    border: 2px rgb(155, 76, 76) solid;
+
+    background-color: darkgrey;
+}
+
+.iqtr {border-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: groove;}
+
+
+
+
+
+

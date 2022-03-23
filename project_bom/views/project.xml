@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="action_project_templates" model="ir.actions.client">
+        <field name="name">BoM 单</field>
+        <field name="tag">project_templates</field>
+        <field name="context" eval="{'model': 'report.project_bom.project_templates'}" />
+    </record>
+
+    <record id='project_action' model='ir.actions.act_window'>
+        <field name="name">专题列表</field>
+        <field name="res_model">project.studynumber</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="基本信息" id="project_menu" parent="project_base_menu" sequence = "2" />
+    <menuitem name="专题列表" id="project_menu1" parent="project_menu" action = "project_action"/>
+
+    <record id="project_view_form" model="ir.ui.view">
+        <field name="name">Project From</field>
+        <field name="model">project.studynumber</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="object" name="study_analysis" string="专题分析" class="btn-primary oe_read_only" />
+                </header>
+                <sheet>
+                    <div name="button_box" position="inside">
+                        <button type="object"
+                            name="study_analysis"
+                            class="oe_stat_button" icon="fa-cubes">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">分析</span>
+                            </div>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="study_id" />
+                            <field name="studyname" />
+                            <field name="feeding_room" />
+                        </group>
+                        <group>
+                            <field name="author_id"/>
+                            <field name="start_time"/>
+
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- 展示首页 -->
+    <record id="project_view_tree" model="ir.ui.view">
+        <field name="name">实验项目列表</field>
+        <field name="model">project.studynumber</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="study_id"/>
+                <field name="author_id"/>
+            </tree>
+        </field>
+    </record>
+    <!-- 搜索 -->
+    <record id="project_view_search" model="ir.ui.view">
+        <field name="name">Project Search</field>
+        <field name="model">project.studynumber</field>
+        <field name="arch" type="xml">
+            <search>      
+               <field name="study_id"/> 
+               <field name="author_id"/>
+
+            </search>
+        </field>
+    </record>
+</odoo>

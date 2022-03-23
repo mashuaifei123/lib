@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id='project_experiment_action' model='ir.actions.act_window'>
+        <field name="name">物料清单</field>
+        <field name="res_model">project.experiment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="实验专题" id="project_base_menu" />
+    <menuitem name="物料清单" id="project_experiment_menu" parent="project_base_menu" action="project_experiment_action"  sequence = "1"/>
+
+
+    <record id="project_experiment_view_form" model="ir.ui.view">
+        <field name="name">Project Experiment Form</field>
+        <field name="model">project.experiment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="button_clicked" readonly = "1"/>
+                    <button type="object" name="create_order" string="创建出库单" class="btn-primary oe_read_only"  attrs="{'readonly': [('button_clicked', '=', True)]}" confirm='点击后生成出库单'/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="studyname_id"/>
+                            <field name="study_name"/>
+                        </group>
+                        <group>
+                            <field name="department_id"/>
+                            <field name="partner_id"/>
+                        </group>
+                    </group>
+                    <!--添加材料栏 -->
+
+                    <notebook>
+                        <page string="操作情况">
+                            <field name="bom_line_ids">
+                                <tree string="新增操作">
+                                    <field name="action_id" />
+                                </tree>
+                                <form string = "add record">
+                                    <sheet>
+                                        <group>
+                                            <field name="action_id" />
+                                            <field name="date_set" widget="Multi-Select-Date"/>
+                                        </group>
+                                        <field name="bom_line_child_ids" widget="one2many">
+                                            <tree string="新增材料" editable="bottom">
+                                                <field name="product_id" />
+                                                <field name="product_qty" />
+                                                <field name="product_type" />
+                                                <field name="product_article_number" />
+                                                <field name="product_material_code" />
+                                                <field name="product_unit" />
+                                            </tree>
+                                        </field>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="备注" name="components">
+                            <field name="description" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- 展示首页 -->
+    <record id="project_experiment_view_tree" model="ir.ui.view">
+        <field name="name">Project Experiment List</field>
+        <field name="model">project.experiment</field>
+        <field name="arch" type="xml">
+            <tree string="记录总览">
+                <field name="studyname_id"/>
+                <field name="department_id"/>
+            </tree>
+        </field>
+    </record>
+    <!-- 搜索 -->
+    <record id="project_experiment_view_search" model="ir.ui.view">
+        <field name="name">Project Experiment Search</field>
+        <field name="model">project.experiment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="studyname_id"/>
+                <field name="department_id"/>
+            </search>
+        </field>
+    </record>
+</odoo>

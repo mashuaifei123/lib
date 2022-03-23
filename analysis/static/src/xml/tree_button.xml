@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="add_template" xml:space="preserve">
+  <t t-extend="ListView.buttons">
+      <t t-jquery=".o_list_buttons" t-operation="append">
+          <t t-if="widget and widget.modelName == 'ana.stock.picking'">
+              <button class="btn btn-primary o_list_tender_bt_add" type="button">存入</button>
+          </t>
+      </t>
+ </t>
+</templates>

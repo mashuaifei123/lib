@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id='register_wendu' model='ir.actions.act_window'>
+        <field name="name">体温登记</field>
+        <field name="res_model">wendu</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="体温" id="register_wendu_menu" />
+    <menuitem name="体温登记" id="register_wendu_action" parent="register_wendu_menu" action="register_wendu"  sequence = "1"/>
+
+
+    <record id="analysis_sample_view_form" model="ir.ui.view">
+        <field name="name">Wendu Form</field>
+        <field name="model">wendu</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="person_name"/>
+                            <field name="temperature" string = "体温℃"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- 展示首页 -->
+    <record id="analysis_sample_view_tree" model="ir.ui.view">
+        <field name="name">Wendu List</field>
+        <field name="model">wendu</field>
+        <field name="arch" type="xml">
+            <tree string="记录总览">
+                    <field name="person_name"/>
+                    <field name="temperature" string = "体温℃"/>
+                    <field name="create_date" string = "创建时间"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- 搜索 -->
+    <record id="analysis_sample_view_search" model="ir.ui.view">
+        <field name="name">Wendu Search</field>
+        <field name="model">wendu</field>
+        <field name="arch" type="xml">
+            <search>      
+                <field name="person_name"/> 
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* 方式一： 全局修改   */
+/*  全局修改tree视图数字字段的值居左显示  */
+.o_list_view .o_list_number {
+    text-align: left;
+    white-space: nowrap;
+}
+/*  全局修改tree视图数字字段的名称居左显示  */
+.o_list_view thead > tr > th.o_list_number_th {
+    text-align: left;
+}
+
+/* 方式二： 通过class局部修改   */
+/* 使用class局部修改tree视图数字字段的值居左显示，
+   要在tree视图的字段增加class="o_list_number_left" */
+.o_list_view .o_list_number_left {
+    text-align: left;
+    white-space: nowrap;
+}

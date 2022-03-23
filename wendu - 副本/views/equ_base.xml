@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    
+    <menuitem name="基础设定" id="equ_settings" parent="equ_menu" sequence = "2" />
+
+    <record id='equ_equplace' model='ir.actions.act_window'>
+        <field name="name">放置地点</field>
+        <field name="res_model">equplace</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id='equ_equmanufacturer' model='ir.actions.act_window'>
+        <field name="name">制造厂商</field>
+        <field name="res_model">equmanufacturer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id='equ_equcompany' model='ir.actions.act_window'>
+        <field name="name">验证单位</field>
+        <field name="res_model">equcompany</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id='equ_equmeasure' model='ir.actions.act_window'>
+        <field name="name">计量频率</field>
+        <field name="res_model">equmeasure</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id='equ_equreview' model='ir.actions.act_window'>
+        <field name="name">回顾频率</field>
+        <field name="res_model">equreview</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id='equ_equsort' model='ir.actions.act_window'>
+        <field name="name">类别</field>
+        <field name="res_model">equsort</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id='equ_equstate' model='ir.actions.act_window'>
+        <field name="name">状态</field>
+        <field name="res_model">equstate</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <menuitem name="放置地点"
+    action="equ_equplace" id="menu_equ_equplace"
+    parent="equ_settings" sequence="1"/>
+
+    <menuitem name="制造厂商"
+    action="equ_equmanufacturer" id="menu_equ_equmanufacturer"
+    parent="equ_settings" sequence="2"/>
+
+    <menuitem name="验证单位"
+    action="equ_equcompany" id="menu_equ_equcompany"
+    parent="equ_settings" sequence="3"/>
+
+    <menuitem name="计量频率"
+    action="equ_equmeasure" id="menu_equ_equmeasure"
+    parent="equ_settings" sequence="4"/>
+    
+    <menuitem name="回顾频率"
+    action="equ_equreview" id="menu_equ_equreview"
+    parent="equ_settings" sequence="5"/>
+
+    <menuitem name="类别"
+    action="equ_equsort" id="menu_equ_equsort"
+    parent="equ_settings" sequence="6"/>
+
+    <menuitem name="状态"
+    action="equ_equstate" id="menu_equ_equstate"
+    parent="equ_settings" sequence="7"/>
+
+</odoo>

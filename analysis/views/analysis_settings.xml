@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id='analysis_sample_settings' model='ir.actions.act_window'>
+        <field name="name">样本设定</field>
+        <field name="res_model">analysis.sample.settings</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="analysis_sample_preview" model="ir.actions.client">
+        <field name="name">预览列表</field>
+        <field name="tag"></field>
+        <field name="context" eval="{'model': ''}" />
+    </record>
+
+
+    <menuitem name="库存" id="analysis_stock_menu" />
+    <menuitem name="样本设定" id="analysis_sample_settings_menu" parent="analysis_stock_menu" action="analysis_sample_settings"  sequence = "3"/>
+
+
+
+
+    <record id="analysis_sample_settings_view_form" model="ir.ui.view">
+        <field name="name">Analysis Sample Settings Form</field>
+        <field name="model">analysis.sample.settings</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="button_clicked"  invisible="1"/>
+                    <button type="object" name="create_ana_stock" string="生成库存" class="btn-primary oe_read_only"  attrs="{'invisible': [('button_clicked', '=', True)]}" confirm='点击后生成库存'/>
+                </header>
+                <!-- <div class="oe_button_box" name="button_box">
+                    <button name="%(analysis_sample_preview)d" type="action"
+                        class="oe_stat_button" icon="fa-bars" string="预览列表"/>
+                </div> -->
+                <widget name="web_ribbon" title="已生成" bg_color="bg-danger" attrs="{'invisible': [('button_clicked', '=', False)]}"/>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="system_id"/>
+                            <field name="number"/>
+                            <field name="start_number"/>
+                            <field name="anticoagulant_id"/>
+                            <field name="note_id"/>
+                            <field name="location"/>
+                        </group>
+                        <group>
+
+                            <field name="animalspecies_id"/>
+                            <field name="matrix_id"/>
+                            <field name="matrix_type_id"/>
+                            <!-- <field name="gender_id"/> -->
+                            <field name="sample_quantity"/>
+                            <field name="validity"/>
+                            
+                            <field name="judge_date"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="name_id"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- 展示首页 -->
+    <record id="analysis_sample_settings_view_tree" model="ir.ui.view">
+        <field name="name">Analysis sample Settings List</field>
+        <field name="model">analysis.sample.settings</field>
+        <field name="arch" type="xml">
+            <tree string="记录总览">
+                <field name="name_id"/>
+                <field name="system_id"/>
+                <field name="number" class="o_list_number_left"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- 搜索 -->
+    <record id="analysis_sample_settings_view_search" model="ir.ui.view">
+        <field name="name">Analysis sample Settings Search</field>
+        <field name="model">analysis.sample.settings</field>
+        <field name="arch" type="xml">
+            <search>      
+                <field name="name_id"/> 
+                <field name="system_id"/>
+                <field name="number"/>
+            </search>
+        </field>
+    </record>
+</odoo>

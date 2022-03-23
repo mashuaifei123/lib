@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='daily_data' model='ir.actions.act_window'>
+        <field name="name">每日信息</field>
+        <field name="res_model">dailydata</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="每日信息" id="daily_data_action" parent="register_postorder_menu" action="daily_data" sequence="2" />
+
+
+    <record id="daily_data_view_form" model="ir.ui.view">
+        <field name="name">dailydata Form</field>
+        <field name="model">dailydata</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                            <field name="today" />
+                    </group>
+                    <notebook>
+                        <page string="详细">
+                            <field name="choose_ids" >
+                                <tree string="新增" editable="bottom">
+                                    <field name="data_department" />
+                                    <field name="good_name" />
+                                    <field name="good_code" />
+                                    <field name="min_num" />
+                                    <field name="now_num" />
+                                    <field name="virtual_num" />
+                                    <field name="need_num" />
+                                    <field name="type" />
+
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- 展示首页 -->
+    <record id="daily_data_view_tree" model="ir.ui.view">
+        <field name="name">dailydata List</field>
+        <field name="model">dailydata</field>
+        <field name="arch" type="xml">
+            <tree string="记录">
+                <field name="today" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- 搜索 -->
+    <record id="daily_data_view_search" model="ir.ui.view">
+        <field name="name">dailydata Search</field>
+        <field name="model">dailydata</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="today" />
+            </search>
+        </field>
+    </record>
+</odoo>
